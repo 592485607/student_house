@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学员管理系统-by felix</title>
+</head>
+<body>
+    <!--Hello {{words}}!-->
+    <!--
+    <ul>
+        {% for student in students %}
+            <li>{{student.name}} - {{student.get_status_display}}</li>
+        {% endfor %}
+    </ul>
+    -->
+    <h3><a href="/admin/"> Admin </a> </h3>
+    <ul>
+        {% for student in students %}
+            <li>
+               {{ student.name }} - {{ student.get_status_display }}
+            </li>
+        {% endfor %}
+    </ul>
+    <hr/>
+    <form action="/" method="post">
+        <!-- Django对提交数据安全性校验 -->
+        {% csrf_token %}
+        {{ form }}
+        <br></br>
+        <input type ="submit" value="Submit" />
+    </form>
+</body>
+</html>
